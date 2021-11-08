@@ -39,6 +39,58 @@ def create_answer(sender, instance, created, **kwargs):
 def save_answer(sender, instance, **kwargs):
     print("saveAnswer------------------------")
     write_without_date('Answer',instance)
+#########################################
+@receiver(post_save, sender=User)
+def create_user(sender, instance, created, **kwargs):
+    if created:
+        print("createAnswer+++++++++++++++++++++")
+        write_without_date('User',instance)
+
+@receiver(post_save, sender=User)
+def save_user(sender, instance, **kwargs):
+    print("saveAnswer------------------------")
+    write_without_date('User',instance)
+#########################################
+@receiver(post_save, sender=Ranking)
+def create_ranking(sender, instance, created, **kwargs):
+    if created:
+        print("createAnswer+++++++++++++++++++++")
+        write_without_date('Ranking',instance)
+
+@receiver(post_save, sender=Ranking)
+def save_ranking(sender, instance, **kwargs):
+    print("saveAnswer------------------------")
+    write_without_date('Ranking',instance)
+#########################################
+@receiver(post_save, sender=History)
+def create_history(sender, instance, created, **kwargs):
+    if created:
+        print("createAnswer+++++++++++++++++++++")
+        write_without_date('History',instance)
+
+@receiver(post_save, sender=History)
+def save_history(sender, instance, **kwargs):
+    print("saveAnswer------------------------")
+    write_without_date('History',instance)
+    #########################################
+@receiver(post_save, sender=Base)
+def create_base(sender, instance, created, **kwargs):
+    if created:
+        print("createAnswer+++++++++++++++++++++")
+        write_without_date('Base',instance)
+
+@receiver(post_save, sender=Base)
+def save_base(sender, instance, **kwargs):
+    print("saveAnswer------------------------")
+    write_without_date('Base',instance)
+#########################################
+
+
+
+
+
+
+
 
 
 def write_without_date(fb_tbl,value):

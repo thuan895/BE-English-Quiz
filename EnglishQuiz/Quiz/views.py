@@ -22,3 +22,10 @@ config = {
 firebase=pyrebase.initialize_app(config)
 auth = firebase.auth()
 database=firebase.database()
+def first_upload(request):
+    # my_stream = database.child(datachild).child("User").stream(read_information)
+    # my_stream = database.child(datachild).child("Ranking").stream(read_booking)
+    # my_stream = database.child(datachild).child("History").stream(read_device)
+    # my_stream = database.child(datachild).child("Pre_Exercise").stream(read_device)
+    # my_stream = database.child(datachild).child("Answer_done").stream(read_information)
+    return redirect('/admin')

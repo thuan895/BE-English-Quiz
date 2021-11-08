@@ -66,3 +66,28 @@ admin.site.register(Answer,AnswerAd)
 #     list_display = ['user', 'exercise', 'maximum','correct', 'date']
 #     search_fields = ['user', 'exercise', 'maximum','correct']
 # admin.site.register(Assignment,AssignmentAd)
+class UserAd(admin.ModelAdmin):
+    list_display = ['username',  'score_max']
+    list_filter = ['username','career']
+    search_fields = ['username']
+admin.site.register(User,UserAd)
+
+class RankingAD(admin.ModelAdmin):
+    pass
+admin.site.register(Ranking, RankingAD)
+
+class HistoryAD(admin.ModelAdmin):
+    pass
+admin.site.register(History,HistoryAD)
+
+class Pre_ExerciseAD(admin.ModelAdmin):
+    pass
+admin.site.register(Pre_Exercise,Pre_ExerciseAD)
+
+class Answer_doneAD(admin.ModelAdmin):
+    pass
+admin.site.register(Answer_done,Answer_doneAD)
+
+class BaseAD(admin.ModelAdmin):
+    pass
+admin.site.register(Base,BaseAD)
