@@ -11,24 +11,11 @@ lock = threading.Lock()
 db = sqlite3.connect('db.sqlite3',check_same_thread=False)
 cur = db.cursor()
 
-def read_booking(message):
+def read_ranking(message):
     lock.acquire(True)
+    print("thuan==============")
     try:
-        read('home_booking',message)
-    finally:
-        lock.release()
-def read_device(message):
-    print("thuan")
-    lock.acquire(True)
-    try:
-        read('home_device',message)
-    finally:
-        lock.release()
-
-def read_information(message):
-    lock.acquire(True)
-    try:
-        read('home_information',message)
+        read('Quiz_ranking',message)
     finally:
         lock.release()
 
@@ -62,16 +49,10 @@ def create(elm, db_tbl):
     elm['date'] = date
     placeholders = ':'+', :'.join(elm.keys())
     print(placeholders)
-    if (db_tbl == 'home_device'):
-        columns = "date, device_name, hospital_id, id, role_id"
-    elif (db_tbl == 'home_booking'):
-        columns = "check_in_id, check_out_id, confirm_id, date, id, info_id, note, qrcode, showed, slot_id"
-    else:
-        columns = "address, birthdate, bluetooth, city, date, district, gender_id, id, name, national, phone_number, ward"
-        #print(columns)
-    query = 'INSERT INTO '+db_tbl+' (%s) VALUES (%s)' % (columns, placeholders)
-    cur.execute(query, elm)
-    db.commit()
+    # columns = "date, device_name, hospital_id, id, role_id"
+    # query = 'INSERT INTO '+db_tbl+' (%s) VALUES (%s)' % (columns, placeholders)
+    # cur.execute(query, elm)
+    # db.commit()
 
 def update(elm, db_tbl):
     val=""
@@ -112,6 +93,7 @@ def updatefield(elm,db_tbl,field,id):
     print(query)
     cur.execute(query)
     db.commit()
+
 def swith(argument):
     switcher = {
         "role": "role_id",

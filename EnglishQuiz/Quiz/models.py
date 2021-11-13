@@ -30,8 +30,6 @@ class User(models.Model):
     score_max = models.CharField(max_length=50, default="")
     national = models.CharField(max_length=50, default="")
     career = models.CharField(max_length=50, default="")
-    def __str__(self):
-        return self.username
 class Ranking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     position = models.CharField(max_length=50)
